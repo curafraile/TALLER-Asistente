@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block titulo %}Editar Docente{% endblock %}
+
+{% block contenido %}
+<h2>Editar Docente</h2>
+<form method="POST">
+    <label>Usuario:</label><br>
+    <input type="text" name="usuario" value="{{ datos[1] }}" required><br><br>
+
+    <label>Clave:</label><br>
+    <input type="text" name="clave" value="{{ datos[2] }}" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" value="{{ datos[3] }}"><br><br>
+
+    <label>Nombre:</label><br>
+    <input type="text" name="nombre" value="{{ datos[4] }}" required><br><br>
+
+    <label>Apellido:</label><br>
+    <input type="text" name="apellido" value="{{ datos[5] }}" required><br><br>
+
+    <label>Área:</label><br>
+    <input type="text" name="area" value="{{ datos[6] }}" required><br><br>
+
+    <button type="submit">Guardar cambios</button>
+</form>
+{% endblock %}

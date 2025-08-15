@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %}Sistema Educativo{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Sistema de Gestión Docente</h1>
+</header>
+
+<nav>
+    {% if session.get("usuario_id") %}
+        <a href="/">Inicio</a>
+        <a href="/perfil">Perfil</a>
+        <a href="/asistencia">Asistencia</a>
+        <a href="/notas">Notas</a>
+        <a href="/exportar_asistencia">Exportar Asistencia</a>
+        <a href="/exportar_notas">Exportar Notas</a>
+        {% if session.get("rol") == "admin" %}
+            <a href="/admin">Panel Admin</a>
+            <a href="/registrar">Registrar Docente</a>
+        {% endif %}
+        <a href="/logout">Cerrar sesión</a>
+    {% else %}
+        <a href="/login">Iniciar sesión</a>
+    {% endif %}
+</nav>
+
+<main>
+    {% block contenido %}{% endblock %}
+</main>
+
+</body>
+</html>

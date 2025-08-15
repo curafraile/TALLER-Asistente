@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: taller-asistente
+    env: python
+    buildCommand: ""
+    startCommand: "python Asistente.py"
+    plan: free

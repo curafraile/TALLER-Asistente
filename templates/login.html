@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block titulo %}Iniciar sesión{% endblock %}
+
+{% block contenido %}
+<h2>Iniciar sesión</h2>
+<form method="POST">
+    <label>Usuario:</label><br>
+    <input type="text" name="usuario" required><br><br>
+
+    <label>Clave:</label><br>
+    <input type="password" name="clave" required><br><br>
+
+    <button type="submit">Entrar</button>
+</form>
+
+{% if error %}
+    <p class="error">{{ error }}</p>
+{% endif %}
+{% endblock %}

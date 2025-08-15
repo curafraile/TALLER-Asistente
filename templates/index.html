@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #005fa3;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/asistencia">Asistencia</a>
+        <a href="/notas">Notas</a>
+        <a href="/perfil">Perfil</a>
+        {% if session.get("rol") == "admin" %}
+            <a href="/registrar">Registrar docente</a>
+        {% endif %}
+        <a href="/logout">Salir</a>
+    </nav>
+    <hr>
+
+    <div class="container">
+        <div class="card">
+            <h1>Bienvenido{% if nombre %}, {{ nombre }} {{ apellido }}{% endif %}</h1>
+            <p>Este es tu panel principal. Desde aquí podés gestionar asistencia, notas y ver tu perfil.</p>
+
+            <a href="/perfil" class="btn">Ver Perfil</a>
+        </div>
+    </div>
+</body>
+</html>

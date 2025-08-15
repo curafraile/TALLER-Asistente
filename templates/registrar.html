@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block titulo %}Registrar Docente{% endblock %}
+
+{% block contenido %}
+<h2>Registrar nuevo docente</h2>
+<form method="POST">
+    <label>Usuario:</label><br>
+    <input type="text" name="usuario" required><br><br>
+
+    <label>Clave:</label><br>
+    <input type="password" name="clave" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email"><br><br>
+
+    <label>Nombre:</label><br>
+    <input type="text" name="nombre" required><br><br>
+
+    <label>Apellido:</label><br>
+    <input type="text" name="apellido" required><br><br>
+
+    <label>Área:</label><br>
+    <input type="text" name="area" required><br><br>
+
+    <button type="submit">Registrar</button>
+</form>
+
+{% if mensaje %}
+    <p class="mensaje">{{ mensaje }}</p>
+{% endif %}
+{% endblock %}

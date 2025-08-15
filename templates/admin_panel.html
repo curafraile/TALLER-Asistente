@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel de Administración</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        a { text-decoration: none; color: blue; }
+        .acciones a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Listado de Docentes</h2>
+
+    {% if docentes %}
+    <table>
+        <tr>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Área</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+        {% for d in docentes %}
+        <tr>
+            <td>{{ d[1] }}</td>
+            <td>{{ d[2] }}</td>
+            <td>{{ d[3] }}</td>
+            <td>{{ d[4] }}</td>
+            <td>{{ d[5] }}</td>
+            <td class="acciones">
+                <a href="/editar/{{ d[0] }}">Editar</a>
+                <a href="/eliminar/{{ d[0] }}" onclick="return confirm('¿Eliminar este docente?')">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No hay docentes registrados.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Volver al inicio</a>
+</body>
+</html>
