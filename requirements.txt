@@ -2,3 +2,4 @@ Flask
 gunicorn
 supabase-py
 psycopg2-binary
+# Actualizado para corregir error de despliegue.
